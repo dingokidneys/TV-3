@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -103,7 +103,7 @@
 
     /* ── Compass content ────────────────────────────── */
     .cmp-title {
-      font-size: 15px; font-weight: 700;
+      font-size: 13px; font-weight: 700;
       letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--dim);
     }
@@ -133,7 +133,7 @@
     }
 
     .cmp-note {
-      font-size: 14px; color: var(--dim);
+      font-size: 20px; color: var(--text);
       text-align: center; max-width: 240px;
     }
 
@@ -185,7 +185,7 @@
       color: var(--teal); min-width: 20px; flex-shrink: 0;
     }
 
-    .tx-info { flex: 1; min-width: 0; padding-left: 10}
+    .tx-info { flex: 1; min-width: 0; }
 
     .tx-name {
       font-size: 14px; font-weight: 700; color: #e8f0f8;
@@ -336,48 +336,11 @@
   let userLatRad     = null;
   let userLngRad     = null;
   let selectedTx     = null;
-  let sensitivity     =null;
-
   let smoothedAlpha  = null;
   let compassRunning = false;
-  const defaultSensitivity = "5";
+
   const SMOOTH = 0.12;
 
-   getSensitivity();
-   
-  // ═══════════════════════════════════════════
-  // Cookie Management
-  // ═══════════════════════════════════════════
-  function getSensitivity() {
-    sensitivity = getCookie('sensitivity');
-    if (sensitivity == "") {
-      sensitivity = defaultSensitivity;
-      document.cookie = "sensitivity=" + defaultSensitivity;
-    } 
-  }
-  
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
- 
-  function haversine(la1, ln1, la2, ln2) {
-    const dla = la2-la1, dln = ln2-ln1;
-    const a = Math.sin(dla/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dln/2)**2;
-    return 6371 * 2 * Math.asin(Math.sqrt(a));
-  }
-   
   // ═══════════════════════════════════════════
   // LOAD TRANSMITTER DATA
   // ═══════════════════════════════════════════
@@ -601,15 +564,18 @@
 
     document.getElementById('cmpNote').textContent = 'Hold phone flat, face up';
 
-    // Modify pointer colour to indicate within +/-5° of transmitter
+    // Modify pointer colour to indicate within +/-10° of transmitter
     if (selectedTx) {
-      let diff = Math.abs(360 + selectedTx.brg + smoothedAlpha) % 360;
-      badptr = '#696969';
-      goodptr = '#5ebeab';
-      if (diff <= sensitivity) {
+      let diff = Math.abs(selectedTx.brg + smoothedAlpha) % 180;
+      document.getElementById('cmpNote').textContent = selectedTx.brg.toFixed(1) + '     ' + (360-smoothedAlpha).toFixed(1) + '     ' + diff.toFixed(1);
+      badptr = '#da6060';
+      goodptr = '#00d4aa';
+      if (diff <=5 ) {
+          document.getElementById('cmpNote').style.color = goodptr;
           document.getElementById('pointerArrow').setAttribute('fill', goodptr);
           document.getElementById('polLabel').setAttribute('fill', goodptr);
       } else {
+          document.getElementById('cmpNote').style.color = badptr;
           document.getElementById('pointerArrow').setAttribute('fill', badptr);
           document.getElementById('polLabel').setAttribute('fill', badptr);
       }
