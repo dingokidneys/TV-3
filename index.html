@@ -133,7 +133,7 @@
     }
 
     .cmp-note {
-      font-size: 20px; color: var(--text);
+      font-size: 11px; color: var(--dim);
       text-align: center; max-width: 240px;
     }
 
@@ -566,8 +566,7 @@
 
     // Modify pointer colour to indicate within +/-10° of transmitter
     if (selectedTx) {
-      let diff = Math.abs(selectedTx.brg + smoothedAlpha) % 180;
-      document.getElementById('cmpNote').textContent = selectedTx.brg.toFixed(1) + '     ' + (360-smoothedAlpha).toFixed(1) + '     ' + diff.toFixed(1);
+      let diff = Math.abs(selectedTx.brg + smoothedAlpha) % 360;
       badptr = '#da6060';
       goodptr = '#00d4aa';
       if (diff <=5 ) {
