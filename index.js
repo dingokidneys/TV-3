@@ -237,8 +237,8 @@
 
     // Colour pointer green if phone is aimed within ±5° of transmitter
     if (selectedTx) {
-      let diff = maths.abs(selectedTx.brg  - smoothedAlpha) % 180;
-      const colour = diff <= 5 ? 'var(--goodptr)' : 'var(--badptr)';
+      let diff = maths.abs(selectedTx.brg  - smoothedAlpha) % 360;
+      const colour = diff <= 5 ? '#52cdb4' : '#f95c5c';
       document.getElementById('pointerArrow').style.fill = colour;
       document.getElementById('polLabel').style.fill = colour;
       document.getElementById('cmpNote').textContent = diff;
