@@ -54,28 +54,28 @@
         <!-- roseGroup: rotates +alpha to keep N on magnetic north
              (alpha decreases CW on Android, +alpha counters that) -->
         <g id="roseGroup" style="transform-origin:100px 100px">
-          <circle cx="100" cy="100" r="95" fill=var(--compassring) stroke="#1e2d45" stroke-width="1.5"/>
-          <circle cx="100" cy="100" r="88" fill=var(--compasscntr) stroke="#1e2d45" stroke-width="1"/>
+          <circle cx="100" cy="100" r="95" fill='#6c92df' stroke="#1e2d45" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="88" fill='#809fdd' stroke="#1e2d45" stroke-width="1"/>
           <g stroke="#2a4060" stroke-width="1">
             <line x1="100" y1="6"   x2="100" y2="16"/>
             <line x1="100" y1="184" x2="100" y2="194"/>
             <line x1="6"   y1="100" x2="16"  y2="100"/>
             <line x1="184" y1="100" x2="194" y2="100"/>
           </g>
-          <text x="100" y="30"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasslabels)>N</text>
-          <text x="100" y="178" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasslabels)>S</text>
-          <text x="172" y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasslabels)>E</text>
-          <text x="28"  y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill=var(--compasslabels)>W</text>
-          <text x="152" y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasslabels)>NE</text>
-          <text x="152" y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasslabels)>SE</text>
-          <text x="48"  y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasslabels)>SW</text>
-          <text x="48"  y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill=var(--compasslabels)>NW</text>
+          <text x="100" y="30"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill='#353535'>N</text>
+          <text x="100" y="178" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill='#353535'>S</text>
+          <text x="172" y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill='#353535'>E</text>
+          <text x="28"  y="104" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" font-weight="700" fill='#353535'>W</text>
+          <text x="152" y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill='#353535'>NE</text>
+          <text x="152" y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill='#353535'>SE</text>
+          <text x="48"  y="156" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill='#353535'>SW</text>
+          <text x="48"  y="52"  text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="10" fill='#353535'>NW</text>
         </g>
 
         <!-- Polarisation label — fixed at centre, never rotates -->
         <text id="polLabel" x="100" y="107" text-anchor="middle"
               font-family="'Rajdhani',sans-serif" font-size="36" font-weight="700" 
-              fill=var(--badptr) opacity="1">&#8203;</text>
+              fill="#da6060" opacity="1">&#8203;</text>
 
         <!-- pointerGroup: rotates to (brg + alpha) % 360 -->
         <g id="pointerGroup" style="transform-origin:100px 100px; opacity:0.6">
